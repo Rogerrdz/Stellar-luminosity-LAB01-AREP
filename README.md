@@ -72,9 +72,6 @@ The notebooks validate the models by:
 - Comparing predicted vs actual luminosity
 - Evaluating cost behavior when modifying parameters
 
-Example:
-
-
 ### Coding style checks
 
 Code correctness is ensured by:
@@ -82,9 +79,6 @@ Code correctness is ensured by:
 - Clear function definitions
 - Consistent variable naming
 - Vectorized NumPy operations where required
-
-Example:
-
 
 ## Deployment
 
@@ -135,6 +129,33 @@ The following evidence is included in this repository (as screenshots):
 - Both notebooks visible and opened in AWS SageMaker
 - Successful execution of all cells (no errors)
 - At least one rendered plot from each notebook
+
+**AWS - Sagemaker**
+
+![Sagemaker](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Sagemaker.png)
+
+**Execution of Notebook 1**
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not1_1.png)
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not1_2.png)
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not1_3.png)
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not1_4_Expe.png)
+
+**Execution of Notebook 1**
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not2_1.png)
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not2_2.png)
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not2_3.png)
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not2_4_Expe.png)
+
+
+![Notebook 1](C:\Users\Admin\Documents\AREP\LAB01\Stellar-luminosity-LAB01-AREP\Stellar-luminosity-LAB01-AREP\assets\Not2_4_Expe.png)
 
 ### Local vs Cloud Execution
 
