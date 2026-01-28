@@ -132,30 +132,30 @@ The following evidence is included in this repository (as screenshots):
 
 **AWS - Sagemaker**
 
-![Sagemaker](assets\Sagemaker.png)
+![Sagemaker](assets/Sagemaker.png)
 
 **Execution of Notebook 1**
 
-![Notebook 1](assets\Not1_1.png)
+![Notebook 1](assets/Not1_1.png)
 
-![Notebook 1](assets\Not1_2.png)
+![Notebook 1](assets/Not1_2.png)
 
-![Notebook 1](assets\Not1_3.png)
+![Notebook 1](assets/Not1_3.png)
 
-![Notebook 1](assets\Not1_4_Expe.png)
+![Notebook 1](assets/Not1_4_Expe.png)
 
 **Execution of Notebook 2**
 
-![Notebook 1](assets\Not2_1.png)
+![Notebook 1](assets/Not2_1.png)
 
-![Notebook 1](assets\Not2_2.png)
+![Notebook 1](assets/Not2_2.png)
 
-![Notebook 1](assets\Not2_3.png)
+![Notebook 1](assets/Not2_3.png)
 
 
-![Notebook 1](assets\Not2_4.png)
+![Notebook 1](assets/Not2_4.png)
 
-![Notebook 1](assets\Not2_5.png)
+![Notebook 1](assets/Not2_5.png)
 
 ### Local vs Cloud Execution
 
