@@ -1,5 +1,5 @@
-# # Stellar Luminosity Regression Models
-
+# Stellar Luminosity Regression Models
+----
 This project implements linear and polynomial regression models from first principles to model stellar luminosity based on physical properties such as stellar mass and effective temperature. The objective is to understand how linear, nonlinear, and interaction effects influence luminosity, while reinforcing foundational machine learning concepts and cloud-based execution.
 
 ## Getting Started
@@ -146,7 +146,7 @@ The following evidence is included in this repository (as screenshots):
 
 **Execution of Notebook 2**
 
-![Notebook 1](\assets\Not2_1.png)
+![Notebook 1](assets\Not2_1.png)
 
 ![Notebook 1](assets\Not2_2.png)
 
@@ -155,7 +155,7 @@ The following evidence is included in this repository (as screenshots):
 
 ![Notebook 1](assets\Not2_4.png)
 
-![Notebook 1](assets\Not2_4.png)
+![Notebook 1](assets\Not2_5.png)
 
 ### Local vs Cloud Execution
 
