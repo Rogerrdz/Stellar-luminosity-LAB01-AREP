@@ -1,0 +1,228 @@
+================================================================================
+  AUTOMATIC TA EVALUATION REPORT
+  Repository: Stellar-luminosity-LAB01-AREP
+  Course: Digital Transformation and Enterprise Architecture – ML Homework
+  Evaluator: GitHub Copilot (automated TA)
+  Date: 2026-02-22
+================================================================================
+
+
+────────────────────────────────────────────────────────────────────────────────
+SUMMARY
+────────────────────────────────────────────────────────────────────────────────
+The repository is well-organized and addresses all major parts of the assignment.
+Both notebooks implement linear and polynomial regression from first principles
+using only NumPy and Matplotlib, as required. Notebook 1 covers gradient descent
+(non-vectorized and vectorized), cost surface visualization, convergence analysis,
+and multiple learning-rate experiments. Notebook 2 introduces polynomial features
+with a mass-temperature interaction term, compares three feature models (M1, M2,
+M3), includes an interaction-term cost sweep, and provides an inference example.
+Cloud execution is well-documented with multiple SageMaker screenshots in the
+README. The main weaknesses are: the learning-rate experiment section in Notebook 1
+only prints final values instead of plotting convergence curves per learning rate
+(a meaningful visual gap), and Notebook 2 does not apply feature scaling, forcing
+an extremely small learning rate (1e-12) which also slows convergence noticeably.
+Overall the submission demonstrates solid conceptual understanding and implementation
+quality.
+
+
+────────────────────────────────────────────────────────────────────────────────
+GRADING BREAKDOWN  (scale 0.0 – 5.0)
+────────────────────────────────────────────────────────────────────────────────
+
+1. Repository structure & compliance ........... 0.5 / 0.5
+   ✓ README.md present and detailed
+   ✓ Two notebooks with clear Part I / Part II separation
+   ✓ All datasets defined inline as NumPy arrays (no external files)
+   ✓ Only NumPy and Matplotlib are imported; pandas is installed via %pip
+     install in NB1 but never imported or used – no penalty applied
+   No deductions.
+
+2. Notebook 1 – Linear Regression .............. 1.7 / 2.0
+   Present and correct:
+   ✓ Dataset scatter-plot with interpretation
+   ✓ predict() and mse_loss() implemented correctly
+   ✓ Cost surface: parameter grid computed, contour plot rendered, explanation
+     of the minimum provided
+   ✓ Gradient derivation shown in LaTeX notation, sign and factor verified
+   ✓ Non-vectorized gradient descent (explicit Python loops, compute_gradients)
+   ✓ Vectorized gradient descent (NumPy operations)
+   ✓ Convergence plot (loss vs. iterations) with brief discussion
+   ✓ Three learning-rate experiments (0.001, 0.01, 0.05) conducted
+   ✓ Final fit scatter+line plot with error discussion
+   ✓ Conceptual questions answered: physical meaning of w, why linearity fails
+
+   Deductions (-0.3):
+   - Learning-rate experiment cell (cell 25) only prints final (w, b, loss)
+     values; no convergence curves are plotted per learning rate. Visualizing
+     how loss evolves differently for each rate is the core purpose of the
+     experiment. (-0.2)
+   - Minor inconsistency: non-vectorized gradients use scale factor 1/m while
+     vectorized uses 2/n, meaning the two implementations are not numerically
+     equivalent for the same learning rate. Both converge, but the discrepancy
+     is not acknowledged. (-0.1)
+
+3. Notebook 2 – Polynomial Regression .......... 1.8 / 2.0
+   Present and correct:
+   ✓ Scatter plot with temperature encoded as colorbar (viridis colormap)
+   ✓ Feature matrix X = [M, T, M², M·T] constructed correctly
+   ✓ Vectorized compute_cost and compute_gradients implemented correctly
+   ✓ gradient_descent function with convergence plot (MSE vs. iterations)
+   ✓ Feature selection experiment: M1 (M,T), M2 (M,T,M²), M3 (M,T,M²,M·T)
+     each trained and visualized via predicted-vs-actual scatter plots
+   ✓ Interaction cost analysis: w_MT swept around its optimum, cost curvature
+     plotted and interpreted
+   ✓ Inference example: new star (M=1.3, T=6600) with result and interpretation
+
+   Deductions (-0.2):
+   - No feature normalization/standardization is applied. The raw T values
+     (~3800–8800) are orders of magnitude larger than M (~0.6–2.4), forcing
+     the learning rate down to 1e-12, which slows convergence significantly
+     and is not discussed. Feature scaling is a standard prerequisite for
+     gradient-descent stability and should have been addressed. (-0.15)
+   - Model comparison (M1, M2, M3) uses individual scatter plots but does not
+     print or plot the final cost values side-by-side for easy comparison. A
+     brief table or bar chart of final MSE per model would have strengthened
+     the analysis. (-0.05)
+
+4. Cloud execution evidence (SageMaker) ........ 0.5 / 0.5
+   ✓ README describes upload and execution on AWS SageMaker Studio
+   ✓ Screenshot of SageMaker environment (Sagemaker.png)
+   ✓ Four screenshots of Notebook 1 execution (Not1_1 – Not1_4_Expe)
+   ✓ Five screenshots of Notebook 2 execution (Not2_1 – Not2_5)
+   ✓ Multiple rendered plots visible in screenshots
+   ✓ Brief local-vs-cloud comparison statement included
+   No deductions.
+
+
+────────────────────────────────────────────────────────────────────────────────
+FINAL GRADE
+────────────────────────────────────────────────────────────────────────────────
+  Repository structure & compliance : 0.5 / 0.5
+  Notebook 1 – Linear regression    : 1.7 / 2.0
+  Notebook 2 – Polynomial regression: 1.8 / 2.0
+  Cloud execution evidence           : 0.5 / 0.5
+  ─────────────────────────────────────────────
+  Final grade: 4.5 / 5.0   →   PASS  (≥ 3.0)
+
+
+────────────────────────────────────────────────────────────────────────────────
+STRENGTHS
+────────────────────────────────────────────────────────────────────────────────
+• Clean, readable code with consistent naming conventions throughout both
+  notebooks.
+• All mandatory elements are present: cost surface, convergence plot,
+  multi-LR experiments (NB1); M1/M2/M3 comparison, w_MT sweep, inference
+  example (NB2).
+• Mathematical gradient derivations are shown in LaTeX alongside the code,
+  aiding comprehension.
+• Datasets are defined entirely inline — no external files or ML libraries used.
+• AWS SageMaker evidence is thorough: multiple screenshots from both notebooks
+  clearly show successful in-cloud execution.
+• The conceptual discussion (meaning of w, limits of linearity, interaction
+  term interpretation) shows genuine understanding of the subject matter.
+• Non-vectorized and vectorized gradient descent are both implemented correctly
+  and produce consistent results.
+
+
+────────────────────────────────────────────────────────────────────────────────
+ISSUES & MISSING ELEMENTS
+────────────────────────────────────────────────────────────────────────────────
+• NB1 – Learning-rate experiment: convergence curves (loss vs. iterations) are
+  not plotted for each of the three learning rates. Only final scalar values are
+  printed. Plotting the curves would clearly show divergence/slow convergence
+  behavior and is the standard way to present this analysis.
+• NB1 – Gradient scaling inconsistency: non-vectorized gradients use (1/m)
+  while vectorized uses (2/n). Although both converge, the inconsistency is
+  silent and could confuse a reader comparing the two implementations.
+• NB2 – No feature normalization: with T in the thousands and M near 1, the
+  gradient for the T-related weights is disproportionately large. The student
+  compensates by choosing alpha=1e-12 without explaining why, and convergence
+  is noticeably slow (cost decreases slowly over 2000 iterations).
+• NB2 – Model comparison lacks a numeric summary: the M1/M2/M3 experiment would
+  be stronger with a side-by-side table (or printed list) of final MSE values
+  to quantitatively justify model selection.
+• Minor typo "Defie Datasets" in the section heading of both notebooks (instead
+  of "Define Datasets"). Cosmetic, no grade penalty.
+
+
+────────────────────────────────────────────────────────────────────────────────
+TA FEEDBACK TO STUDENT
+────────────────────────────────────────────────────────────────────────────────
+Strong work overall. The fundamentals are clearly understood — your gradient
+derivations are correct, both gradient-descent variants work, and you addressed
+all the mandatory deliverables for both notebooks. The SageMaker evidence is
+exemplary.
+
+Two concrete improvements for future work:
+
+1. When running learning-rate experiments, always plot the full convergence
+   curve for each rate on the same axes. This makes it immediately visible how
+   divergence, slow convergence, and good convergence differ visually — which
+   is the whole pedagogical point of the exercise.
+
+2. In multi-feature regression, standardize your features before training
+   (subtract mean, divide by standard deviation). When feature scales differ
+   by three orders of magnitude (T ~ 5000 vs. M ~ 1.0), gradient descent
+   becomes unstable unless the learning rate is reduced to near-zero. Feature
+   scaling fixes this, allows a reasonable alpha, and dramatically speeds up
+   convergence. Note this in your notebook when you choose an unusual alpha.
+
+These are standard professional practices, not just style preferences. Adding
+them would push this submission to a near-perfect score.
+
+
+────────────────────────────────────────────────────────────────────────────────
+AI-GENERATION ASSESSMENT  (NON-GRADING — informative only)
+────────────────────────────────────────────────────────────────────────────────
+
+A. Qualitative Assessment
+──────────────────────────
+
+  Indicators of AI assistance:
+  • Explanation cells are uniformly structured across notebooks: one-sentence
+    observation followed by a brief "therefore" conclusion, with no hesitation
+    or exploratory reasoning.
+  • LaTeX gradient formulas are complete and cleanly formatted on first
+    appearance, with no intermediate or partial derivation steps that would
+    typically appear in student working notes.
+  • The README follows a standard project-template structure (Getting Started,
+    Prerequisites, Installing, Deployment, Built With, Contributing, Authors,
+    License, Acknowledgments) with near-boilerplate content in each section.
+  • Section headers and cell organization map almost exactly onto the
+    assignment specification, suggesting systematic generation rather than
+    organic notebook development.
+  • Code style is perfectly consistent: naming, spacing, docstring placement,
+    and function signatures are uniform throughout, which is uncommon in
+    hand-written academic code.
+
+  Indicators of human contribution:
+  • The repeated typo "Defie Datasets" in both notebooks is a human-looking
+    artifact — AI systems rarely reproduce the same typo consistently.
+  • Choice of alpha=1e-12 reflects empirical trial-and-error (a human debugging
+    the divergence problem with raw T values), even though it is not explained.
+  • The asset screenshots (SageMaker evidence) are genuine evidence of manual
+    execution effort.
+
+B. Quantitative Estimate
+─────────────────────────
+  Code (functions, training loops, plots): ~55% AI involvement
+  Explanations / markdown commentary:      ~65% AI involvement
+  README.md:                               ~75% AI involvement
+
+C. Commentary
+──────────────
+The project exhibits several hallmarks of AI-assisted writing: uniform tone,
+complete formal derivations without intermediate steps, boilerplate README
+structure, and near-perfect adherence to the assignment rubric on first attempt.
+The code quality is high but suspiciously consistent. That said, the student
+clearly engaged with the material (SageMaker screenshots, choice of learning
+rate, minor typos, an empirical debugging approach to alpha) and cannot be
+evaluated solely on polish. The extent of AI assistance, if any, falls within
+a wide spectrum of modern tool-assisted academic work.
+
+"This assessment is observational and does not imply misconduct."
+
+================================================================================
+END OF REPORT
+================================================================================
